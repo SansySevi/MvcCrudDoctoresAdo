@@ -1,0 +1,41 @@
+﻿@model Doctor
+
+@{
+    List<Hospital> hospitales = ViewData["HOSPITALES"] as List<Hospital>;
+}
+
+<div class="container-fluid">
+    <a asp-controller="Doctores" asp-action="Index" class="btn btn-warning" style="margin: 10px 0px">Volver a Index</a><br />
+    <h1>Edit Doctores</h1>
+    <form method="post">
+        <label>Id hospital:</label>
+        <label>Id hospital:</label>
+        <select name="idhospital" class="form-control">
+            @foreach (Hospital hosp in hospitales)
+            {
+                <option value="@hosp.IdHospital">@hosp.Nombre</option>
+            }
+        </select><br />
+
+        @*<input type="text" name="idhospital" value="@Model.IdHospital"
+            class="form-control" required/>*@
+
+        <input type="hidden" name="iddoctor" value="@Model.IdDoctor"
+            class="form-control" required/>
+
+        <label>Apellido:</label>
+        <input type="text" name="apellido" value="@Model.Apellido"
+            class="form-control" required/>
+
+        <label>Especialidad:</label>
+        <input type="text" name="especialidad" value="@Model.Especialidad"
+            class="form-control" required/>
+
+        <label>Salario:</label>
+        <input type="text" name="salario" value="@Model.Salario"
+            class="form-control" required/><br />
+        <button class="btn btn-outline-dark">
+            Update
+        </button>
+    </form>
+</div>

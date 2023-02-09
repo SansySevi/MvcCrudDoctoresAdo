@@ -1,0 +1,44 @@
+﻿@model List<Hospital>
+
+<div class="container-fluid">
+    <h1>Nuevo Doctor</h1>
+
+    <form method="post">
+        <label>Id hospital:</label>
+        <select name="idhospital" class="form-control">
+            @foreach (Hospital hosp in Model)
+            {
+                <option value="@hosp.IdHospital">@hosp.Nombre</option>
+            }
+        </select><br />
+
+        @*<input type="text" name="idhospital"
+            class="form-control" required/>*@
+
+        <label>Id doctor:</label>
+        <input type="text" name="iddoctor"
+            class="form-control" required/>
+
+        <label>Apellido:</label>
+        <input type="text" name="apellido"
+            class="form-control" required/>
+
+        <label>Especialidad:</label>
+        <input type="text" name="especialidad"
+            class="form-control" required/>
+
+        <label>Salario:</label>
+        <input type="text" name="salario"
+            class="form-control" required/>
+
+        <br />
+        <button class="btn btn-secondary">
+            Create
+        </button>
+    </form>
+
+    <br />
+    <h2 style="color:lightgray">
+        @ViewData["MENSAJE"]
+    </h2>
+</div>
